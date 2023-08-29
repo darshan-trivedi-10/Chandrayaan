@@ -15,6 +15,7 @@ Starting Position: (0, 0, 0)
 
 Initial Direction: N
 
+['F', 'B', 'R', 'L', 'U', 'D']
 “f” - (0, 1, 0) - N
 “r” - (0, 1, 0) - E
 “u” - (0, 1, 0) - U
@@ -27,10 +28,41 @@ Final Direction: N
 
 class Chandrayaan {
   constructor(initialDirection, startPosition, commands) {
-    this.direction = initialDirection;
-    this.position = startPosition;
-    this.commands = commands;
-    this.executeCommands();
+    if (this.inputValidator(initialDirection, startPosition, commands)) {
+      this.direction = initialDirection;
+      this.position = startPosition;
+      this.commands = commands;
+      this.executeCommands();
+    }
+  }
+
+  inputValidator(initialDirection, startPosition, commands) {
+    let possibleDirection = ["N", "E", "S", "W", "U", "D"];
+    let possibleCommands = ["F", "B", "R", "L", "U", "D"];
+
+    initialDirection = initialDirection.toUpperCase();
+    if (!possibleDirection.includes(initialDirection)) {
+      throw Error("Invalid initial Direction");
+    }
+
+    if (
+      !Array.isArray(startPosition) ||
+      !(startPosition.length == 3) ||
+      !startPosition.every(Number.isInteger)
+    ) {
+      throw new Error("Invalid start position");
+    }
+
+    if (
+      !Array.isArray(commands) ||
+      !commands.every((command) => {
+        return possibleCommands.includes(command);
+      })
+    ) {
+      throw new Error("Invalid commands");
+    }
+
+    return true;
   }
 
   executeCommands() {
