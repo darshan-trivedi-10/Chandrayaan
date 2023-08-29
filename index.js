@@ -32,7 +32,6 @@ class Chandrayaan {
       this.direction = initialDirection.toUpperCase();
       this.position = startPosition;
       this.commands = commands.map((command) => command.toUpperCase());
-      this.executeCommands();
     }
   }
 
@@ -70,7 +69,6 @@ class Chandrayaan {
       let command = this.commands[i].toUpperCase();
       this.execute(command);
     }
-
     return { direction: this.direction, position: this.position };
   }
 
@@ -83,7 +81,7 @@ class Chandrayaan {
         this.moveBackward();
         break;
       case "R":
-        console.log(command);
+        this.turnRight();
         break;
       case "L":
         console.log(command);
@@ -145,6 +143,32 @@ class Chandrayaan {
         break;
       case "D":
         this.position[2]++;
+        break;
+      default:
+        break;
+    }
+  }
+
+  turnRight() {
+    let currDirection = this.direction;
+    switch (currDirection) {
+      case "N":
+        this.direction = "E";
+        break;
+      case "S":
+        this.direction = "W";
+        break;
+      case "E":
+        this.direction = "S";
+        break;
+      case "W":
+        this.direction = "N";
+        break;
+      case "U":
+        this.direction = "E";
+        break;
+      case "D":
+        this.direction = "W";
         break;
       default:
         break;

@@ -27,7 +27,6 @@ describe("Chandrayaan Testing", () => {
     chandrayan.moveForward();
 
     var result = chandrayan.executeCommands();
-    console.log("RESULT : ", result);
     let expectedPosition = [0, 1, 0];
 
     expect(result).toEqual({
@@ -45,12 +44,28 @@ describe("Chandrayaan Testing", () => {
     chandrayan.moveBackward();
 
     var result = chandrayan.executeCommands();
-    console.log("RESULT : ", result);
     let expectedPosition = [2, 0, 0];
 
     expect(result).toEqual({
       direction: initialDirection,
       position: expectedPosition,
+    });
+  });
+
+  test("Turn Right Testing", () => {
+    let initialDirection = "W"; 
+    let startPosition = [1, 0, 0];
+    let commands = [];
+    const chandrayan = new Chandrayaan(initialDirection,startPosition,commands);
+
+    chandrayan.turnRight();
+
+    var result = chandrayan.executeCommands();
+    let expectedDirection = 'N';
+
+    expect(result).toEqual({
+      direction: expectedDirection,
+      position: startPosition,
     });
   });
 
