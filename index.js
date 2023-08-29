@@ -55,7 +55,7 @@ class Chandrayaan {
     if (
       !Array.isArray(commands) ||
       !commands.every((command) => {
-        return possibleCommands.includes(command);
+        return possibleCommands.includes(command.toUpperCase());
       })
     ) {
       throw new Error("Invalid commands");
