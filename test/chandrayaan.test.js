@@ -147,6 +147,22 @@ describe("Chandrayaan Testing", () => {
       position: expectedPosition,
     });
   });
+
+  test("Complete Test Suite for Chandrayaan Operations 3", () => {
+    let initialDirection = "N"; 
+    let startPosition = [1, 1, 1];
+    let commands = ['u', 'f', 'f'];
+    const chandrayan = new Chandrayaan(initialDirection,startPosition,commands);
+
+    var result = chandrayan.executeCommands();
+    let expectedDirection = 'U';
+    let expectedPosition = [1, 1, 3];
+
+    expect(result).toEqual({
+      direction: expectedDirection,
+      position: expectedPosition,
+    });
+  });
   
 });
 
