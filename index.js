@@ -24,3 +24,19 @@ Final Position: (0, 1, -1)
 
 Final Direction: N
 */
+
+class Chandrayaan{
+    constructor(initialDirection, startPosition, command){
+        this.initialDirection = initialDirection;
+        this.startPosition = startPosition;
+        this.command = command;
+    }
+
+    print(){
+        console.log(this.initialDirection);
+        console.log(this.startPosition);
+        console.log(this.command);
+    }
+};
+
+let c = new Chandrayaan('N', [0, 0, 0], ['a', 'b', 'c']);
