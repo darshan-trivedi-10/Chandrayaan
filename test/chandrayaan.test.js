@@ -69,6 +69,23 @@ describe("Chandrayaan Testing", () => {
     });
   });
 
+  test("Turn Left Testing", () => {
+    let initialDirection = "W"; 
+    let startPosition = [1, 0, 0];
+    let commands = [];
+    const chandrayan = new Chandrayaan(initialDirection,startPosition,commands);
+
+    chandrayan.turnLeft();
+
+    var result = chandrayan.executeCommands();
+    let expectedDirection = 'S';
+
+    expect(result).toEqual({
+      direction: expectedDirection,
+      position: startPosition,
+    });
+  });
+
 });
 
 describe("Input Validation Testing", () => {
