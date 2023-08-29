@@ -80,7 +80,7 @@ class Chandrayaan {
         this.moveForward();
         break;
       case "B":
-        console.log(command);
+        this.moveBackward();
         break;
       case "R":
         console.log(command);
@@ -119,6 +119,32 @@ class Chandrayaan {
         break;
       case "D":
         this.position[2]--;
+        break;
+      default:
+        break;
+    }
+  }
+
+  moveBackward() {
+    let currDirection = this.direction;
+    switch (currDirection) {
+      case "N":
+        this.position[1]--;
+        break;
+      case "S":
+        this.position[1]++;
+        break;
+      case "E":
+        this.position[0]--;
+        break;
+      case "W":
+        this.position[0]++;
+        break;
+      case "U":
+        this.position[2]--;
+        break;
+      case "D":
+        this.position[2]++;
         break;
       default:
         break;

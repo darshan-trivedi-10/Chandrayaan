@@ -35,6 +35,25 @@ describe("Chandrayaan Testing", () => {
       position: expectedPosition,
     });
   });
+
+  test("Move Backward Testing", () => {
+    let initialDirection = "W"; 
+    let startPosition = [1, 0, 0];
+    let commands = [];
+    const chandrayan = new Chandrayaan(initialDirection,startPosition,commands);
+
+    chandrayan.moveBackward();
+
+    var result = chandrayan.executeCommands();
+    console.log("RESULT : ", result);
+    let expectedPosition = [2, 0, 0];
+
+    expect(result).toEqual({
+      direction: initialDirection,
+      position: expectedPosition,
+    });
+  });
+
 });
 
 describe("Input Validation Testing", () => {
