@@ -1,0 +1,17 @@
+{
+  "name": "chandrayaan",
+  "version": "1.0.0",
+  "description": "chandrayaan - incubyte assessment",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "assessment"
+  ],
+  "author": "ddt",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.6.4"
+  }
+}
