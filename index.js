@@ -1,7 +1,7 @@
 /*
-X - E,W
-Y - N,S
-Z - U,D
+this.X - E,W
+this.Y - N,S
+this.Z - U,D
 
 MOVE - F(+1), B(-1)
 TURN - 90 DEGREE (L, R) 
@@ -29,9 +29,9 @@ Final Direction: N
 class Chandrayaan {
   constructor(initialDirection, startPosition, commands) {
     if (this.inputValidator(initialDirection, startPosition, commands)) {
-      this.direction = initialDirection;
+      this.direction = initialDirection.toUpperCase();
       this.position = startPosition;
-      this.commands = commands;
+      this.commands = commands.map((command) => command.toUpperCase());
       this.executeCommands();
     }
   }
@@ -77,7 +77,7 @@ class Chandrayaan {
   execute(command) {
     switch (command) {
       case "F":
-        console.log(command);
+        this.moveForward();
         break;
       case "B":
         console.log(command);
@@ -93,6 +93,32 @@ class Chandrayaan {
         break;
       case "D":
         console.log(command);
+        break;
+      default:
+        break;
+    }
+  }
+
+  moveForward() {
+    let currDirection = this.direction;
+    switch (currDirection) {
+      case "N":
+        this.position[1]++;
+        break;
+      case "S":
+        this.position[1]--;
+        break;
+      case "E":
+        this.position[0]++;
+        break;
+      case "W":
+        this.position[0]--;
+        break;
+      case "U":
+        this.position[2]++;
+        break;
+      case "D":
+        this.position[2]--;
         break;
       default:
         break;
