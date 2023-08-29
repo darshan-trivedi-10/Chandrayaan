@@ -69,7 +69,7 @@ class Chandrayaan {
       let command = this.commands[i].toUpperCase();
       this.execute(command);
     }
-    return { direction: this.direction, position: this.position };
+    return { direction: this.direction[0], position: this.position };
   }
 
   execute(command) {
@@ -87,10 +87,10 @@ class Chandrayaan {
         this.turnLeft();
         break;
       case "U":
-        this.direction = 'U';
+        this.direction = "U" + this.direction;
         break;
       case "D":
-        this.direction = 'D';
+        this.direction = "D" + this.direction;
         break;
       default:
         break;
@@ -98,7 +98,7 @@ class Chandrayaan {
   }
 
   moveForward() {
-    let currDirection = this.direction;
+    let currDirection = this.direction[0];
     switch (currDirection) {
       case "N":
         this.position[1]++;
@@ -124,7 +124,7 @@ class Chandrayaan {
   }
 
   moveBackward() {
-    let currDirection = this.direction;
+    let currDirection = this.direction[0];
     switch (currDirection) {
       case "N":
         this.position[1]--;
@@ -151,6 +151,9 @@ class Chandrayaan {
 
   turnRight() {
     let currDirection = this.direction;
+    if (currDirection.length > 1) {
+      currDirection = currDirection[1];
+    }
     switch (currDirection) {
       case "N":
         this.direction = "E";
@@ -177,6 +180,9 @@ class Chandrayaan {
 
   turnLeft() {
     let currDirection = this.direction;
+    if (currDirection.length > 1) {
+      currDirection = currDirection[1];
+    }
     switch (currDirection) {
       case "N":
         this.direction = "W";

@@ -116,16 +116,31 @@ describe("Chandrayaan Testing", () => {
     });
   });
 
-  test("Complete Test Suite for Chandrayaan Operations", () => {
+  test("Complete Test Suite for Chandrayaan Operations 1", () => {
     let initialDirection = "N"; 
     let startPosition = [0, 0, 0];
     let commands = ['f', 'r', 'u', 'b', 'l'];
     const chandrayan = new Chandrayaan(initialDirection,startPosition,commands);
 
     var result = chandrayan.executeCommands();
-    console.log(result);
     let expectedDirection = 'N';
     let expectedPosition = [0, 1, -1];
+
+    expect(result).toEqual({
+      direction: expectedDirection,
+      position: expectedPosition,
+    });
+  });
+
+  test("Complete Test Suite for Chandrayaan Operations 2", () => {
+    let initialDirection = "N"; 
+    let startPosition = [0, 0, 0];
+    let commands = ['f', 'u', 'r', 'l', 'u', 'l', 'b', 'f', 'b'];
+    const chandrayan = new Chandrayaan(initialDirection,startPosition,commands);
+
+    var result = chandrayan.executeCommands();
+    let expectedDirection = 'W';
+    let expectedPosition = [1, 1, 0];
 
     expect(result).toEqual({
       direction: expectedDirection,
