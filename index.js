@@ -25,18 +25,47 @@ Final Position: (0, 1, -1)
 Final Direction: N
 */
 
-class Chandrayaan{
-    constructor(initialDirection, startPosition, command){
-        this.initialDirection = initialDirection;
-        this.startPosition = startPosition;
-        this.command = command;
+class Chandrayaan {
+  constructor(initialDirection, startPosition, commands) {
+    this.direction = initialDirection;
+    this.position = startPosition;
+    this.commands = commands;
+    this.executeCommands();
+  }
+
+  executeCommands() {
+    for (let i = 0; i < this.commands.length; i++) {
+      let command = this.commands[i].toUpperCase();
+      this.execute(command);
     }
 
-    print(){
-        console.log(this.initialDirection);
-        console.log(this.startPosition);
-        console.log(this.command);
-    }
-};
+    return { direction: this.direction, position: this.position };
+  }
 
-let c = new Chandrayaan('N', [0, 0, 0], ['a', 'b', 'c']);
+  execute(command) {
+    switch (command) {
+      case "F":
+        console.log(command);
+        break;
+      case "B":
+        console.log(command);
+        break;
+      case "R":
+        console.log(command);
+        break;
+      case "L":
+        console.log(command);
+        break;
+      case "U":
+        console.log(command);
+        break;
+      case "D":
+        console.log(command);
+        break;
+      default:
+        break;
+    }
+  }
+}
+
+module.exports = Chandrayaan;
