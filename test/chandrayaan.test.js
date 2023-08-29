@@ -86,6 +86,21 @@ describe("Chandrayaan Testing", () => {
     });
   });
 
+  test("Turn Up Testing", () => {
+    let initialDirection = "W"; 
+    let startPosition = [1, 0, 0];
+    let commands = ['U'];
+    const chandrayan = new Chandrayaan(initialDirection,startPosition,commands);
+
+    var result = chandrayan.executeCommands();
+    let expectedDirection = 'U';
+
+    expect(result).toEqual({
+      direction: expectedDirection,
+      position: startPosition,
+    });
+  });
+
 });
 
 describe("Input Validation Testing", () => {

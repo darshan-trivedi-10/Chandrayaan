@@ -87,7 +87,7 @@ class Chandrayaan {
         this.turnLeft();
         break;
       case "U":
-        console.log(command);
+        this.direction = 'U'
         break;
       case "D":
         console.log(command);
