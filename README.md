@@ -21,9 +21,7 @@ Follow the instructions to get the project running on your local machine for dev
     npm install
     ```
 ## Running the tests
-    ```
     npm test
-    ```
 ## Built With
 
 - Node.js
